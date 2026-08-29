@@ -1,15 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" class="dark" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hi Tech Tools - Precision Engineered</title>
-    <meta name="description" content="Manufacturer and Exporter of Tools and Dies, Blanking Tools, Stamping Tools, Injection Moulds, and Mould Bases. Based in Noida, India since 1993.">
+    <title>Hi-Tech Tools | Progressive Electrical Stamping Dies Manufacturer</title>
+    <meta name="description" content="ISO 9001:2008 certified Manufacturer and Supplier of Progressive Electrical Stamping Dies & Tools, Press Tools, and CNC Wire-Cut Services in Noida, India.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                    }
+                }
+            }
+        }
+    </script>
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -17,30 +39,33 @@
     <!-- Boxicons for Icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 transition-colors duration-300 font-sans overflow-x-hidden">
 
     <!-- Header & Navigation -->
-    <header class="header">
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <span class="text-gradient">Hi Tech Tools</span>
+    <header class="header fixed w-full top-0 z-50 py-4 transition-all duration-300">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 group">
+                <img src="assets/images/brand/logo.gif" alt="Hi-Tech Tools Logo" class="h-10 rounded shadow-sm group-hover:scale-105 transition-transform bg-white">
+                <span class="text-2xl font-heading font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500 dark:from-blue-400 dark:to-emerald-400 tracking-tight">
+                    Hi-Tech Tools
+                </span>
             </a>
             
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#why-us" class="nav-link">Why Us</a></li>
-                    <li><a href="#products" class="nav-link">Products</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+            <nav class="nav hidden md:flex items-center gap-8">
+                <ul class="flex gap-8 items-center font-medium text-sm text-gray-600 dark:text-gray-300">
+                    <li><a href="#home" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative">Home</a></li>
+                    <li><a href="#profile" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative">Profile</a></li>
+                    <li><a href="#why-us" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative">Why Us</a></li>
+                    <li><a href="#products" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative">Products</a></li>
+                    <li><a href="#contact" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative">Contact</a></li>
                 </ul>
             </nav>
 
-            <div class="header-actions">
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-xl text-gray-600 dark:text-gray-300" aria-label="Toggle Theme">
                     <i class='bx bx-moon'></i>
                 </button>
-                <div class="menu-toggle" id="mobile-menu">
+                <div class="md:hidden p-2 text-2xl text-gray-800 dark:text-white cursor-pointer" id="mobile-menu">
                     <i class='bx bx-menu'></i>
                 </div>
             </div>
@@ -49,92 +74,148 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-bg-elements">
-                <div class="glow-orb top-right"></div>
-                <div class="glow-orb bottom-left"></div>
-            </div>
-            <div class="container hero-container">
-                <div class="hero-content fade-in-up">
-                    <div class="badge">Est. 1993 • Noida, India</div>
-                    <h1 class="hero-title">Precision <br/><span class="text-gradient">Engineered.</span><br/> Quality Delivered.</h1>
-                    <p class="hero-subtitle">Your trusted partner in high-precision metal stampings, custom tooling, injection moulds, and CNC services.</p>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                        <a href="#products" class="btn btn-secondary">Explore Products</a>
+        <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+            <!-- Background Orbs -->
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[100px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-emerald-500/20 rounded-full blur-[100px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
+            
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in-up">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800 text-sm font-semibold mb-8">
+                        <i class='bx bx-certification'></i> ISO 9001:2008 Certified • Est. 1995
                     </div>
-                </div>
-                <div class="hero-image fade-in-left">
-                    <!-- Geometric 3D Abstract representation -->
-                    <div class="abstract-shape">
-                        <div class="shape layer-1"></div>
-                        <div class="shape layer-2"></div>
-                        <div class="shape layer-3"></div>
+                    <h1 class="text-5xl lg:text-7xl font-heading font-extrabold leading-tight mb-6">
+                        Precision <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500">Engineered.</span><br/>
+                        Quality Delivered.
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-lg leading-relaxed">
+                        Leading manufacturer, service provider & supplier of Progressive Electrical Stamping Dies, Press Tools, and CNC Wire-Cut job work.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-heading font-semibold rounded-xl shadow-lg shadow-blue-500/30 transition-all hover:-translate-y-1">Get in Touch</a>
+                        <a href="#products" class="px-8 py-3.5 bg-white dark:bg-darkCard border-2 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 text-gray-900 dark:text-white font-heading font-semibold rounded-xl transition-all hover:-translate-y-1 shadow-sm">Explore Products</a>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about section">
-            <div class="container">
-                <div class="section-header fade-in-up">
-                    <h2>Our <span class="text-gradient">Profile</span></h2>
-                    <p>Over three decades of manufacturing excellence under the leadership of Mr. Bhupendra Kumar Sharma.</p>
                 </div>
                 
-                <div class="about-grid">
-                    <div class="glass-card fade-in-up delay-1">
-                        <i class='bx bx-history card-icon'></i>
-                        <h3>Legacy</h3>
-                        <p>Established in 1993, we have grown to achieve an annual turnover of ~1.5 Crore Rupees, serving clients globally.</p>
+                <div class="fade-in-left relative h-[500px] hidden md:block">
+                    <!-- Hero Visual using one of the banners -->
+                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-4/5 h-[400px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 glass-effect">
+                        <img src="assets/images/banners/banner-1.jpg" alt="Precision Machinery" class="w-full h-full object-cover mix-blend-overlay opacity-80">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/40 to-transparent"></div>
                     </div>
-                    <div class="glass-card fade-in-up delay-2">
-                        <i class='bx bx-globe card-icon'></i>
-                        <h3>Global Reach</h3>
-                        <p>10% of our precision-engineered products are exported internationally, meeting strict global standards.</p>
+                    
+                    <!-- Floating abstract cards -->
+                    <div class="absolute left-0 top-1/4 w-48 h-48 bg-white/80 dark:bg-darkCard/80 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-2xl shadow-xl p-6 flex flex-col justify-center gap-3 float-anim-1">
+                        <i class='bx bx-cog text-4xl text-blue-500'></i>
+                        <h3 class="font-heading font-bold text-xl">Advanced Tech</h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">CNC Wire-Cut & Tool Room Machinery</p>
                     </div>
-                    <div class="glass-card fade-in-up delay-3">
-                        <i class='bx bx-building-house card-icon'></i>
-                        <h3>Infrastructure</h3>
-                        <p>State-of-the-art facilities located in Sector-3, Noida, equipped with cutting-edge CNC and EDM technology.</p>
+                    
+                    <div class="absolute left-1/4 bottom-1/4 w-40 h-40 bg-white/80 dark:bg-darkCard/80 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-2xl shadow-xl p-5 flex flex-col justify-center items-center text-center gap-2 float-anim-2">
+                        <div class="text-3xl font-heading font-extrabold text-emerald-500">2M+</div>
+                        <p class="text-xs font-medium text-gray-600 dark:text-gray-300">Annual Sales</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Why Us Section -->
-        <section id="why-us" class="why-us section bg-alt">
-            <div class="container">
-                <div class="why-layout">
-                    <div class="why-text fade-in-up">
-                        <h2>Why Choose <span class="text-gradient">Us?</span></h2>
-                        <p>We combine advanced technology with deep engineering expertise to deliver flawless tooling and moulding solutions. Our dedicated R&D laboratory ensures every product meets exacting specifications.</p>
+        <!-- Company Profile Section -->
+        <section id="profile" class="py-24 bg-white dark:bg-[#0b1120] relative">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
+                    <h2 class="text-4xl font-heading font-bold mb-4">Company <span class="text-blue-500">Profile</span></h2>
+                    <p class="text-gray-600 dark:text-gray-400">Over two decades of manufacturing excellence under the leadership of Mr. Bhupendra Kumar Sharma.</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="fade-in-up">
+                        <h3 class="text-2xl font-heading font-semibold mb-6">About Us</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                            With a wide variety of hi-tech industrial tools of the most reliable make, Hi-Tech Tools is a leading manufacturer and supplier of Progressive Electrical Stamping Dies & Tools, Press Tools, Sheet Metal Dies & Tools. We are also a trusted service provider, offering job work for CNC Wire-Cut.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                            Led by our promoter Mr. Bhupendra Sharma, we are known for providing quality, reliability and timely services. We work with the sole motto of <strong>"Better Quality, Maximum Economy and Prompt Delivery."</strong>
+                        </p>
                         
-                        <ul class="feature-list">
-                            <li><i class='bx bx-check-circle'></i> Optical Profile Projector with PC Software</li>
-                            <li><i class='bx bx-check-circle'></i> Advanced Height Master & Air/Bore Gauges</li>
-                            <li><i class='bx bx-check-circle'></i> Digital Verniers and Micrometers</li>
-                            <li><i class='bx bx-check-circle'></i> Strict Quality Assurance Protocols</li>
+                        <h3 class="text-2xl font-heading font-semibold mt-10 mb-6">Our Infrastructure</h3>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Hi-Tech Tools has a well outfitted infrastructural facility comprising of reliable and world class range of machinery, equipments and tools. In a bid to create Progressive Electrical Stamping Dies & Tools, we have invested in acquiring the best machinery to meet and exceed customer expectations within scheduled time limits.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-6 fade-in-left">
+                        <div class="p-8 rounded-2xl bg-gray-50 dark:bg-darkCard border border-gray-100 dark:border-gray-800 shadow-sm hover:-translate-y-2 transition-transform duration-300">
+                            <i class='bx bx-check-shield text-4xl text-emerald-500 mb-4'></i>
+                            <h4 class="font-heading font-bold text-lg mb-2">Quality Assurance</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Stringent quality control with optical profile projectors and advanced testing facilities.</p>
+                        </div>
+                        <div class="p-8 rounded-2xl bg-gray-50 dark:bg-darkCard border border-gray-100 dark:border-gray-800 shadow-sm hover:-translate-y-2 transition-transform duration-300 translate-y-8">
+                            <i class='bx bx-bulb text-4xl text-blue-500 mb-4'></i>
+                            <h4 class="font-heading font-bold text-lg mb-2">R&D Focused</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Dedicated team of engineers innovating processes to match the latest market trends.</p>
+                        </div>
+                        <div class="p-8 rounded-2xl bg-gray-50 dark:bg-darkCard border border-gray-100 dark:border-gray-800 shadow-sm hover:-translate-y-2 transition-transform duration-300">
+                            <i class='bx bx-group text-4xl text-purple-500 mb-4'></i>
+                            <h4 class="font-heading font-bold text-lg mb-2">Expert Team</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">30 highly qualified staff members providing effective customer service and solutions.</p>
+                        </div>
+                        <div class="p-8 rounded-2xl bg-gray-50 dark:bg-darkCard border border-gray-100 dark:border-gray-800 shadow-sm hover:-translate-y-2 transition-transform duration-300 translate-y-8">
+                            <i class='bx bx-globe text-4xl text-orange-500 mb-4'></i>
+                            <h4 class="font-heading font-bold text-lg mb-2">Global Reach</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Supplying across India and exploring international markets with top-tier products.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section / Stats -->
+        <section id="why-us" class="py-24 relative border-y border-gray-200 dark:border-gray-800">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/banners/banner-2.jpg" alt="Background" class="w-full h-full object-cover opacity-[0.03] dark:opacity-[0.05]">
+            </div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="fade-in-up">
+                        <h2 class="text-4xl font-heading font-bold mb-6">Why Choose <span class="text-blue-500">Us?</span></h2>
+                        <ul class="space-y-4 mb-10">
+                            <li class="flex items-center gap-3 text-lg text-gray-700 dark:text-gray-300">
+                                <i class='bx bxs-check-circle text-emerald-500 text-xl'></i> Superlative quality products at cost effective rates
+                            </li>
+                            <li class="flex items-center gap-3 text-lg text-gray-700 dark:text-gray-300">
+                                <i class='bx bxs-check-circle text-emerald-500 text-xl'></i> Commitment to innovation and development
+                            </li>
+                            <li class="flex items-center gap-3 text-lg text-gray-700 dark:text-gray-300">
+                                <i class='bx bxs-check-circle text-emerald-500 text-xl'></i> Mechanical upgradation of products on a regular basis
+                            </li>
+                            <li class="flex items-center gap-3 text-lg text-gray-700 dark:text-gray-300">
+                                <i class='bx bxs-check-circle text-emerald-500 text-xl'></i> Usage of the best manufacturing practices
+                            </li>
+                            <li class="flex items-center gap-3 text-lg text-gray-700 dark:text-gray-300">
+                                <i class='bx bxs-check-circle text-emerald-500 text-xl'></i> Timely delivery to domestic and international markets
+                            </li>
                         </ul>
                     </div>
                     
-                    <div class="stats-grid fade-in-left">
-                        <div class="stat-box">
-                            <h3 class="counter" data-target="1993">0</h3>
-                            <p>Founded</p>
+                    <div class="stats-grid grid grid-cols-2 gap-6 fade-in-left">
+                        <div class="bg-white dark:bg-darkCard p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] border border-gray-100 dark:border-gray-800 text-center">
+                            <h3 class="text-5xl font-heading font-extrabold text-blue-500 mb-2 counter" data-target="1995">0</h3>
+                            <p class="font-medium text-gray-500 dark:text-gray-400">Year Established</p>
                         </div>
-                        <div class="stat-box">
-                            <h3 class="counter" data-target="30">0</h3>
-                            <p>Years Experience</p>
+                        <div class="bg-white dark:bg-darkCard p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] border border-gray-100 dark:border-gray-800 text-center">
+                            <h3 class="text-5xl font-heading font-extrabold text-blue-500 mb-2 counter" data-target="30">0</h3>
+                            <p class="font-medium text-gray-500 dark:text-gray-400">Staff Members</p>
                         </div>
-                        <div class="stat-box">
-                            <h3 class="counter" data-target="100">0</h3>
-                            <p>Quality Guarantee %</p>
+                        <div class="bg-white dark:bg-darkCard p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] border border-gray-100 dark:border-gray-800 text-center">
+                            <h3 class="text-5xl font-heading font-extrabold text-blue-500 mb-2">2<span class="text-3xl">Cr</span></h3>
+                            <p class="font-medium text-gray-500 dark:text-gray-400">Sales Volume</p>
                         </div>
-                        <div class="stat-box">
-                            <h3 class="counter" data-target="10">0</h3>
-                            <p>% Export Volume</p>
+                        <div class="bg-white dark:bg-darkCard p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] border border-gray-100 dark:border-gray-800 text-center">
+                            <h3 class="text-5xl font-heading font-extrabold text-blue-500 mb-2 counter" data-target="100">0</h3>
+                            <p class="font-medium text-gray-500 dark:text-gray-400">Quality %</p>
                         </div>
                     </div>
                 </div>
@@ -142,120 +223,189 @@
         </section>
 
         <!-- Products Section -->
-        <section id="products" class="products section">
-            <div class="container">
-                <div class="section-header fade-in-up">
-                    <h2>Products & <span class="text-gradient">Capabilities</span></h2>
-                    <p>A comprehensive suite of precision engineering services and manufactured tools.</p>
+        <section id="products" class="py-24 bg-white dark:bg-[#0b1120]">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-12 fade-in-up">
+                    <h2 class="text-4xl font-heading font-bold mb-4">Products & <span class="text-blue-500">Capabilities</span></h2>
+                    <p class="text-gray-600 dark:text-gray-400">An extensive array of precision tools made in accordance with industrial standards.</p>
                 </div>
                 
-                <div class="product-tabs fade-in-up">
-                    <button class="tab-btn active" data-tab="all">All</button>
-                    <button class="tab-btn" data-tab="products">Products</button>
-                    <button class="tab-btn" data-tab="services">Services</button>
+                <div class="flex flex-wrap justify-center gap-4 mb-12 product-tabs fade-in-up">
+                    <button class="tab-btn active px-6 py-2 rounded-full font-medium transition-colors bg-blue-600 text-white shadow-md hover:bg-blue-700" data-tab="all">All Range</button>
+                    <button class="tab-btn px-6 py-2 rounded-full font-medium transition-colors bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700" data-tab="dies">Stamping Dies</button>
+                    <button class="tab-btn px-6 py-2 rounded-full font-medium transition-colors bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700" data-tab="tools">Die Tools & Components</button>
+                    <button class="tab-btn px-6 py-2 rounded-full font-medium transition-colors bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700" data-tab="services">Services</button>
                 </div>
                 
-                <div class="product-grid">
-                    <!-- Products -->
-                    <div class="product-card fade-in-up" data-category="products">
-                        <div class="card-img-placeholder prod-1"></div>
-                        <div class="card-content">
-                            <h3>Electric Stamping Tools</h3>
-                            <p>High-speed, precision dies for electrical stampings.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 product-grid">
+                    <!-- Products dynamically filtered via JS (data-category) -->
+                    
+                    <div class="product-card bg-white dark:bg-darkCard rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 hover:-translate-y-2 hover:shadow-xl transition-all fade-in-up" data-category="dies">
+                        <div class="h-60 overflow-hidden relative group p-4 bg-white">
+                            <img src="assets/images/products/progressive-electrical-stamping-dies.jpg" alt="Progressive Electrical Stamping Dies" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-heading font-bold mb-2 line-clamp-1" title="Progressive Electrical Stamping Dies">Progressive Electrical Stamping Dies</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Ideal for manufacturing electrical stampings. High precision, durable construction, compatible with various press machines.</p>
+                            <a href="#contact" class="text-blue-500 font-semibold hover:text-blue-600 inline-flex items-center gap-1 text-sm">Send Inquiry <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </div>
-                    <div class="product-card fade-in-up delay-1" data-category="products">
-                        <div class="card-img-placeholder prod-2"></div>
-                        <div class="card-content">
-                            <h3>Injection Moulds</h3>
-                            <p>Durable custom moulds for precision plastic injection.</p>
+
+                    <div class="product-card bg-white dark:bg-darkCard rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 hover:-translate-y-2 hover:shadow-xl transition-all fade-in-up delay-[100ms]" data-category="dies">
+                        <div class="h-60 overflow-hidden relative group p-4 bg-white">
+                            <img src="assets/images/products/progressive-stamping-dies.jpg" alt="Progressive Stamping Dies" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-heading font-bold mb-2 line-clamp-1" title="Progressive Stamping Dies">Progressive Stamping Dies</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Finely finished, rust-free dies with high work capacity for various electronic components and stamping parts.</p>
+                            <a href="#contact" class="text-blue-500 font-semibold hover:text-blue-600 inline-flex items-center gap-1 text-sm">Send Inquiry <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </div>
-                    <div class="product-card fade-in-up delay-2" data-category="products">
-                        <div class="card-img-placeholder prod-3"></div>
-                        <div class="card-content">
-                            <h3>PDC Dies & Mould Bases</h3>
-                            <p>Pressure Die Casting tools built to exact standards.</p>
+
+                    <div class="product-card bg-white dark:bg-darkCard rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 hover:-translate-y-2 hover:shadow-xl transition-all fade-in-up delay-[200ms]" data-category="tools">
+                        <div class="h-60 overflow-hidden relative group p-4 bg-white">
+                            <img src="assets/images/products/progressive-die-tools.jpg" alt="Progressive Die Tools" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-heading font-bold mb-2 line-clamp-1" title="Progressive Die Tools">Progressive Die Tools</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Stainless steel multi-station custom-configured tools for precision sheet metal stamping operations.</p>
+                            <a href="#contact" class="text-blue-500 font-semibold hover:text-blue-600 inline-flex items-center gap-1 text-sm">Send Inquiry <i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white dark:bg-darkCard rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 hover:-translate-y-2 hover:shadow-xl transition-all fade-in-up" data-category="dies">
+                        <div class="h-60 overflow-hidden relative group p-4 bg-white">
+                            <img src="assets/images/products/industrial-progressive-machinery-dies.jpg" alt="Industrial Progressive Machinery Dies" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-heading font-bold mb-2 line-clamp-1" title="Industrial Progressive Machinery Dies">Industrial Machinery Dies</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Designed for automotive clutch and machinery manufacturing with high accuracy and integrated coolant circulation.</p>
+                            <a href="#contact" class="text-blue-500 font-semibold hover:text-blue-600 inline-flex items-center gap-1 text-sm">Send Inquiry <i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white dark:bg-darkCard rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 hover:-translate-y-2 hover:shadow-xl transition-all fade-in-up delay-[100ms]" data-category="tools">
+                        <div class="h-60 overflow-hidden relative group p-4 bg-white">
+                            <img src="assets/images/products/die-springs.jpg" alt="Die Springs" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-heading font-bold mb-2 line-clamp-1" title="Die Springs">Die Springs</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Different types of high-quality heavy-duty springs required for die and tool operations.</p>
+                            <a href="#contact" class="text-blue-500 font-semibold hover:text-blue-600 inline-flex items-center gap-1 text-sm">Send Inquiry <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </div>
                     
-                    <!-- Services -->
-                    <div class="product-card fade-in-up" data-category="services">
-                        <div class="card-img-placeholder serv-1"></div>
-                        <div class="card-content">
-                            <h3>CNC Wire-Cut EDM</h3>
-                            <p>Featuring advanced SODICK machines for extreme accuracy.</p>
+                    <div class="product-card bg-white dark:bg-darkCard rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 hover:-translate-y-2 hover:shadow-xl transition-all fade-in-up delay-[200ms]" data-category="tools">
+                        <div class="h-60 overflow-hidden relative group p-4 bg-white">
+                            <img src="assets/images/products/industrial-tool-room.jpg" alt="Industrial Tool Room Components" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-heading font-bold mb-2 line-clamp-1" title="Industrial Tool Room">Tool Room Assets</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Comprehensive range of industrial utility metal wares and tool room components built with precision cut configurations.</p>
+                            <a href="#contact" class="text-blue-500 font-semibold hover:text-blue-600 inline-flex items-center gap-1 text-sm">Send Inquiry <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </div>
-                    <div class="product-card fade-in-up delay-1" data-category="services">
-                        <div class="card-img-placeholder serv-2"></div>
-                        <div class="card-content">
-                            <h3>CNC Turning & VMC</h3>
-                            <p>Vertical Machining Centers for complex 3D profiles.</p>
+
+                    <div class="product-card bg-white dark:bg-darkCard rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 hover:-translate-y-2 hover:shadow-xl transition-all fade-in-up" data-category="services">
+                        <div class="h-60 overflow-hidden relative group p-4 bg-white">
+                            <img src="assets/images/banners/banner-3.jpg" alt="CNC Job Work" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 rounded">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-heading font-bold mb-2 line-clamp-1" title="CNC Wire-Cut Job Work">CNC Wire-Cut Job Work</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">We offer highly precise and economical job work for CNC Wire-Cut tailored to client specifications.</p>
+                            <a href="#contact" class="text-blue-500 font-semibold hover:text-blue-600 inline-flex items-center gap-1 text-sm">Send Inquiry <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </div>
-                    <div class="product-card fade-in-up delay-2" data-category="services">
-                        <div class="card-img-placeholder serv-3"></div>
-                        <div class="card-content">
-                            <h3>EDM Drill</h3>
-                            <p>Precise small hole drilling for hardened materials.</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact section bg-alt">
-            <div class="container">
-                <div class="contact-wrapper">
-                    <div class="contact-info fade-in-up">
-                        <h2>Get in <span class="text-gradient">Touch</span></h2>
-                        <p>We are ready to assist you with your custom tooling and stamping needs. Reach out to us today.</p>
+        <section id="contact" class="py-24 relative overflow-hidden bg-gray-50 dark:bg-[#0b1120] border-t border-gray-200 dark:border-gray-800">
+            <div class="absolute inset-0 bg-blue-500/5 dark:bg-blue-500/10 mix-blend-multiply pointer-events-none"></div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div class="fade-in-up">
+                        <h2 class="text-4xl font-heading font-bold mb-4">Get in <span class="text-blue-500">Touch</span></h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-10 text-lg">We are ready to assist you with your custom tooling and stamping needs. Reach out to us today.</p>
                         
-                        <div class="info-item">
-                            <div class="icon-box"><i class='bx bx-map'></i></div>
-                            <div>
-                                <h4>Address</h4>
-                                <p>G-45, Sector-3, Noida (U.P.) India</p>
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-4">
+                                <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center text-2xl shrink-0">
+                                    <i class='bx bx-map'></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-bold text-lg mb-1">Address</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">G-157, Sector-63,<br>Noida-201301, Uttar Pradesh, India</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="info-item">
-                            <div class="icon-box"><i class='bx bx-phone'></i></div>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>+91-120-3918655(O) / 3918656(R)<br/>+91-98100 62859 / 93122 60464(O)</p>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-2xl flex items-center justify-center text-2xl shrink-0">
+                                    <i class='bx bx-phone'></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-bold text-lg mb-1">Phone</h4>
+                                    <p class="text-gray-600 dark:text-gray-400 flex flex-col">
+                                        <a href="tel:+911203918655" class="hover:text-emerald-500 transition-colors">+91-120-3918655(O) / 3918656(R)</a>
+                                        <a href="tel:+919810062859" class="hover:text-emerald-500 transition-colors">+91-98100 62859 / 93122 60464(O)</a>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="info-item">
-                            <div class="icon-box"><i class='bx bx-envelope'></i></div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>info@hitechtools-india.com</p>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-2xl flex items-center justify-center text-2xl shrink-0">
+                                    <i class='bx bx-envelope'></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-bold text-lg mb-1">Email</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">
+                                        <a href="mailto:info@hitechtools-india.com" class="hover:text-purple-500 transition-colors">info@hitechtools-india.com</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-14 h-14 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-2xl flex items-center justify-center text-2xl shrink-0">
+                                    <i class='bx bx-user'></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-bold text-lg mb-1">Managing Director</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">Mr. Bhupendra Kumar Sharma</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="contact-form-container glass-card fade-in-left">
-                        <form id="contact-form" class="contact-form">
-                            <h3>Send an Enquiry</h3>
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" placeholder="John Doe" required>
+                    <div class="bg-white dark:bg-darkCard p-8 lg:p-10 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-800 fade-in-left">
+                        <form id="contact-form" class="flex flex-col gap-5">
+                            <h3 class="text-2xl font-heading font-bold mb-2">Send an Enquiry</h3>
+                            
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
+                                <input type="text" id="name" placeholder="John Doe" required class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-[#0b1120] border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900 dark:text-white">
                             </div>
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" placeholder="john@example.com" required>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
+                                <input type="email" id="email" placeholder="john@example.com" required class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-[#0b1120] border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900 dark:text-white">
                             </div>
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" id="subject" placeholder="Product Enquiry" required>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject / Product</label>
+                                <input type="text" id="subject" placeholder="e.g. Progressive Dies" required class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-[#0b1120] border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900 dark:text-white">
                             </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" rows="4" placeholder="How can we help you?" required></textarea>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message Requirements</label>
+                                <textarea id="message" rows="4" placeholder="How can we help you?" required class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-[#0b1120] border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900 dark:text-white resize-none"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block">Send Message <i class='bx bx-send'></i></button>
+                            
+                            <button type="submit" class="w-full py-4 mt-2 bg-blue-600 hover:bg-blue-700 text-white font-heading font-semibold rounded-xl shadow-lg shadow-blue-500/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2">
+                                Send Message <i class='bx bx-send'></i>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -264,36 +414,50 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h2>Hi Tech Tools</h2>
-                    <p>Precision Engineered. Quality Delivered. Manufacturer and exporter of premium tooling solutions since 1993.</p>
+    <footer class="bg-gray-900 text-white pt-20 pb-10 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="lg:col-span-2">
+                    <a href="#" class="flex items-center gap-2 mb-6">
+                        <img src="assets/images/brand/logo.gif" alt="Logo" class="h-10 rounded bg-white p-1">
+                        <span class="text-2xl font-heading font-bold text-white">Hi-Tech Tools</span>
+                    </a>
+                    <p class="text-gray-400 max-w-sm mb-6 leading-relaxed">
+                        Precision Engineered. Quality Delivered. ISO 9001:2008 certified manufacturer and exporter of premium tooling solutions since 1995.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors"><i class='bx bxl-linkedin text-xl'></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-400 transition-colors"><i class='bx bxl-twitter text-xl'></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-emerald-500 transition-colors"><i class='bx bx-globe text-xl'></i></a>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                
+                <div>
+                    <h4 class="text-lg font-heading font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-transform">Home</a></li>
+                        <li><a href="#profile" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-transform">Company Profile</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-transform">Products</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-transform">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="footer-newsletter">
-                    <h4>SarSon's Technologies</h4>
-                    <p>Coming soon! Stay tuned for our new technological advancements.</p>
-                    <a href="#" class="btn btn-sm btn-secondary" style="margin-top: 1rem; display: inline-block;">
-                        <i class='bx bxs-file-pdf'></i> Download Catalog
+                
+                <div>
+                    <h4 class="text-lg font-heading font-semibold mb-6">Trade Info</h4>
+                    <p class="text-gray-400 text-sm mb-4">
+                        GST: 09AVKPS1838B1ZG<br>
+                        Export Markets: Global<br>
+                        Memberships: SSI
+                    </p>
+                    <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-lg text-sm font-medium transition-colors">
+                        <i class='bx bx-file'></i> Request Catalog
                     </a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Hi Tech Tools. All Rights Reserved.</p>
-                <div class="social-links">
-                    <a href="#"><i class='bx bxl-linkedin'></i></a>
-                    <a href="#"><i class='bx bxl-twitter'></i></a>
-                </div>
+            
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+                <p>&copy; 2026 Hi-Tech Tools. All Rights Reserved.</p>
+                <p>Designed with precision.</p>
             </div>
         </div>
     </footer>

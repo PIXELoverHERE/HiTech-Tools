@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check local storage for theme
     const savedTheme = localStorage.getItem('theme') || 'dark';
     htmlElement.setAttribute('data-theme', savedTheme);
+    if (savedTheme === 'dark') {
+        htmlElement.classList.add('dark');
+    } else {
+        htmlElement.classList.remove('dark');
+    }
     updateThemeIcon(savedTheme);
 
     themeToggleBtn.addEventListener('click', () => {
@@ -16,6 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
         htmlElement.setAttribute('data-theme', newTheme);
+        if (newTheme === 'dark') {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
     });
