@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
     const themeIcon = themeToggleBtn.querySelector('i');
-    
+
     // Check local storage for theme
     const savedTheme = localStorage.getItem('theme') || 'dark';
     htmlElement.setAttribute('data-theme', savedTheme);
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggleBtn.addEventListener('click', () => {
         const currentTheme = htmlElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
+
         htmlElement.setAttribute('data-theme', newTheme);
         if (newTheme === 'dark') {
             htmlElement.classList.add('dark');
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================================== */
     const mobileMenuBtn = document.getElementById('mobile-menu');
     const nav = document.querySelector('.nav');
-    
+
     mobileMenuBtn.addEventListener('click', () => {
         nav.classList.toggle('active');
         const icon = mobileMenuBtn.querySelector('i');
@@ -108,12 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                
+
                 // If it's a counter, trigger the animation
                 if (entry.target.classList.contains('stats-grid')) {
                     startCounters();
                 }
-                
+
                 observer.unobserve(entry.target);
             }
         });
@@ -131,11 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
        Number Counters Animation
        ========================================================================== */
     let countersStarted = false;
-    
+
     function startCounters() {
         if (countersStarted) return;
         countersStarted = true;
-        
+
         const counters = document.querySelectorAll('.counter');
         const speed = 200; // The lower the slower
 
@@ -197,16 +197,16 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const btn = contactForm.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
-            
+
             btn.innerHTML = 'Sending... <i class="bx bx-loader-alt bx-spin"></i>';
             btn.disabled = true;
-            
+
             // Simulate API call
             setTimeout(() => {
                 btn.innerHTML = 'Message Sent! <i class="bx bx-check"></i>';
                 btn.style.backgroundColor = '#10b981';
                 contactForm.reset();
-                
+
                 setTimeout(() => {
                     btn.innerHTML = originalText;
                     btn.style.backgroundColor = '';
@@ -214,5 +214,108 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 3000);
             }, 1500);
         });
+    }
+
+    /* ==========================================================================
+       Rate List Modal Logic
+       ========================================================================== */
+    const rateModal = document.getElementById('rate-modal');
+    if (rateModal) {
+        const rateModalBackdrop = document.getElementById('rate-modal-backdrop');
+        const rateModalContent = document.getElementById('rate-modal-content');
+        const closeRateModalBtn = document.getElementById('close-rate-modal');
+        const rateForm = document.getElementById('rate-form');
+        const modalProductName = document.getElementById('modal-product-name');
+        const rateProductInput = document.getElementById('rate-product');
+        const rateListBtns = document.querySelectorAll('.rate-list-btn');
+
+        function openRateModal(productName) {
+            modalProductName.innerText = productName;
+            rateProductInput.value = productName;
+
+            rateModal.classList.remove('hidden');
+            rateModal.classList.add('flex');
+
+            // trigger reflow
+            void rateModal.offsetWidth;
+
+            rateModalBackdrop.classList.remove('opacity-0');
+            rateModalBackdrop.classList.add('opacity-100');
+
+            rateModalContent.classList.remove('scale-95', 'opacity-0');
+            rateModalContent.classList.add('scale-100', 'opacity-100');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRateModal() {
+            rateModalBackdrop.classList.remove('opacity-100');
+            rateModalBackdrop.classList.add('opacity-0');
+
+            rateModalContent.classList.remove('scale-100', 'opacity-100');
+            rateModalContent.classList.add('scale-95', 'opacity-0');
+
+            setTimeout(() => {
+                rateModal.classList.add('hidden');
+                rateModal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        rateListBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const card = btn.closest('.product-card');
+                const title = card.querySelector('h3').innerText;
+                openRateModal(title);
+            });
+        });
+
+        closeRateModalBtn.addEventListener('click', closeRateModal);
+        rateModalBackdrop.addEventListener('click', closeRateModal);
+
+        rateForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = rateForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+
+            submitBtn.innerHTML = 'Sending... <i class="bx bx-loader-alt bx-spin"></i>';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                submitBtn.innerHTML = 'Request Sent! <i class="bx bx-check"></i>';
+                submitBtn.style.backgroundColor = '#10b981';
+
+                setTimeout(() => {
+                    closeRateModal();
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.backgroundColor = '';
+                        submitBtn.disabled = false;
+                        rateForm.reset();
+                    }, 300);
+                }, 1500);
+            }, 1500);
+        });
+    }
+
+    /* ==========================================================================
+       Hero Slideshow
+       ========================================================================== */
+    const slideshowImages = document.querySelectorAll('.slideshow-img');
+    if (slideshowImages.length > 0) {
+        let currentSlide = 0;
+        
+        setInterval(() => {
+            // Fade out current slide
+            slideshowImages[currentSlide].classList.remove('opacity-100');
+            slideshowImages[currentSlide].classList.add('opacity-0');
+            
+            // Move to next slide
+            currentSlide = (currentSlide + 1) % slideshowImages.length;
+            
+            // Fade in new slide
+            slideshowImages[currentSlide].classList.remove('opacity-0');
+            slideshowImages[currentSlide].classList.add('opacity-100');
+        }, 3000);
     }
 });
